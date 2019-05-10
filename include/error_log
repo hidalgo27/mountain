@@ -1,0 +1,2 @@
+[31-Mar-2019 11:24:12 America/Chicago] PHP Fatal error:  Call to a member function query() on a non-object in /home1/pandaninja/public_html/trabajos-pandaninja/mountaincuscotours.com/include/footer.php on line 15
+[31-Mar-2019 11:24:18 America/Chicago] PHP Fatal error:  Call to a member function query() on a non-object in /home1/pandaninja/public_html/trabajos-pandaninja/mountaincuscotours.com/include/header.php on line 45

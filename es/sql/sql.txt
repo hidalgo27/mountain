@@ -1,0 +1,54 @@
+CREATE TABLE tcrucero(
+idcrucero		int PRIMARY KEY AUTO_INCREMENT,
+codigo			varchar(10),
+titulo			varchar(120),
+capacidad		int(3),
+estrellas		int(1),
+estado			int(1)
+)ENGINE=InnoDB;
+
+CREATE TABLE timagenCrucero(
+idimagenCrucero	int PRIMARY KEY AUTO_INCREMENT,
+nombre				varchar(120),
+imagen				varchar(60),
+idcrucero			int,
+FOREIGN KEY (idcrucero) REFERENCES tcrucero(idcrucero) ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB;
+
+CREATE TABLE tprecioCrucero(
+idprecioCrucero		int PRIMARY KEY AUTO_INCREMENT,
+duracion					varchar(2),
+categoria				varchar(50),
+acomodacion				varchar(30),
+precio					dec(10,2),
+incluye					longtext,
+noIncluye				longtext,
+idcrucero				int,
+FOREIGN KEY (idcrucero) REFERENCES tcrucero(idcrucero) ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB;
+
+CREATE TABLE titinerario(
+iditinerario			int PRIMARY KEY AUTO_INCREMENT,
+titulo					varchar(120),
+descripcion				longtext,
+dia						int(2),
+fecha						date,
+idcrucero				int,
+FOREIGN KEY (idcrucero) REFERENCES tcrucero(idcrucero) ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB;
+
+CREATE TABLE tdestinos(
+iddestinos				int PRIMARY KEY AUTO_INCREMENT,
+nombre					varchar(60),
+descripcion				longtext,
+imagen					varchar(30),
+nombreImagen			varchar(30)
+)ENGINE=InnoDB;
+
+CREATE TABLE tcruceroDestino(
+idcruceroDestino		int PRIMARY KEY AUTO_INCREMENT,
+idcrucero				int,
+iddestinos				int,
+FOREIGN KEY (idcrucero) REFERENCES tcrucero(idcrucero) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY (iddestinos) REFERENCES tdestinos(iddestinos) ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB;
